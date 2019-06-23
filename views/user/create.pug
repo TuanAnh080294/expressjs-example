@@ -1,0 +1,7 @@
+extends ../../templates/common.pug
+block content
+	h1 Create User
+	form(action="/user/create", method="POST")
+		label Name
+		input(type="text", name="name")
+		button Create

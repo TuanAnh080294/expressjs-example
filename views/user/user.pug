@@ -1,0 +1,15 @@
+extends ../../templates/common.pug
+block content
+	h1 User List
+	a(href="/user/create") Create
+	form(action="/user/search", method="GET")
+		.form-group.d-flex
+			label(class="mr-2") Name
+			input(name="q", value=query, class="form-control, mr-2") 
+			button(class="btn btn-primary") Search
+	ul 
+		each user in users
+			li
+				span= user.name
+				span &nbsp;
+				a(href="./" + user.id) View

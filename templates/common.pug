@@ -1,0 +1,31 @@
+html 
+	head
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
+		link(rel="stylesheet", href="/css/custom.css")
+	body
+		block head
+			#head
+				nav.navbar.navbar-expand-lg.navbar-light.bg-light
+					a.navbar-brand(href='#') 
+						img.rounded-circle(src="/images/logo.png", width="30%")
+						span.ml-2 NA Shop
+					button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+						span.navbar-toggler-icon
+					#navbarNav.collapse.navbar-collapse
+						ul.navbar-nav
+							li.nav-item
+								a.nav-link(href='/')
+									| Home 
+									span.sr-only (current)
+							li.nav-item
+								a.nav-link(href='/user') Users List
+							li.nav-item
+								a.nav-link(href='/user/create') Create User
+							li.nav-item
+								a.nav-link.disabled(href='#', tabindex='-1', aria-disabled='true') Disabled
+
+
+		block content
+		block foot
+			#footer
+				p Tuấn Anh Trần
