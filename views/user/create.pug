@@ -1,7 +1,14 @@
 extends ../../templates/common.pug
 block content
 	h1 Create User
+	if errors
+		each error in errors
+			.alert.alert-danger= error
 	form(action="/user/create", method="POST")
-		label Name
-		input(type="text", name="name")
-		button Create
+		.form-group
+			label(for="txtName") Name
+			input.form-control(id="txtName", type="text", name="name", value=user ? user.name : "")
+		.form-group
+			label(for="txtPhone") Phone number
+			input.form-control(id="txtPhone", type="text", name="phone", value=user ? user.phone : "")
+		button.btn.btn-primary Create

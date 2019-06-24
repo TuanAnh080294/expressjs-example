@@ -1,15 +1,25 @@
 extends ../../templates/common.pug
 block content
 	h1 User List
-	a(href="/user/create") Create
-	form(action="/user/search", method="GET")
-		.form-group.d-flex
-			label(class="mr-2") Name
-			input(name="q", value=query, class="form-control, mr-2") 
-			button(class="btn btn-primary") Search
-	ul 
-		each user in users
-			li
-				span= user.name
-				span &nbsp;
-				a(href="./" + user.id) View
+	.d-flex.align-items-center.mb-4
+		a.btn.btn-primary(href="/user/create") Create
+		form.m-auto(action="/user/search", method="GET")
+			.form-group.m-auto
+				input(name="q", value=query, class="form-control, mr-2") 
+				button(class="btn btn-primary") Search
+	table.table
+		thead
+			tr
+				th(scope="col") #
+				th(scope="col") Name
+				th(scope="col") Phone Number
+				th(scope="col") Action
+		tbody
+			each user in users
+				tr
+					th(scope="row")= user.id
+					td= user.name
+					td= user.phone
+					td 
+						a(href="./user/" + user.id) View
+
