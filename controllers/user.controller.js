@@ -21,6 +21,7 @@ module.exports.search = function(req, res) {
 };
 
 module.exports.create = function(req, res) {
+	console.log(req.cookies);
 	res.render('user/create');
 };
 
@@ -28,7 +29,8 @@ module.exports.postCreate = function(req, res) {
 	var user = req.body;
 	user.id = shortid.generate();
 	db.get('users').push(user).write();
-	console.log(res.locals);
+	// console.log(res.locals);
+	res.cookie("id","123456");
 	res.redirect('/user');
 };
 
