@@ -2,7 +2,9 @@
   "users": [
     {
       "id": "4O-LHjMWP",
-      "name": "123123"
+      "name": "123123",
+      "email": "tuananh080294@gmail.com",
+      "password": "123456"
     },
     {
       "id": "Uk5N5CSWf",

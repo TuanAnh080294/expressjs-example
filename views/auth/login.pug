@@ -1,0 +1,13 @@
+extends ../../templates/common.pug
+block content
+	h1 Login
+	if error
+		.alert.alert-danger= error
+	form(method="POST")
+		.form-group
+			label(for="txtEmail") Email
+			input.form-control(id="txtEmail", type="text", name="email")
+		.form-group
+			label(for="txtPassword") Password
+			input.form-control(id="txtPassword", type="text", name="password")
+		button.btn.btn-primary Login
