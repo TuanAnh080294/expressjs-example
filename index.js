@@ -12,7 +12,7 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.use(express.static('public'));
-app.use(cookieParser());
+app.use(cookieParser('asdsadfsdgd123423423'));
 
 app.set('view engine', 'pug');
 app.set('views', './views');
