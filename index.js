@@ -8,6 +8,7 @@ const port = 3000;
 var userRoute = require('./routes/user.route');
 var authRoute = require("./routes/auth.route");
 var authMiddlewares = require("./middlewares/auth.middlewares");
+var productRoute = require("./routes/product.route");
 
 var cookieParser = require('cookie-parser');
 
@@ -26,6 +27,7 @@ app.get('/', function(req, res) {
 
 app.use('/user',authMiddlewares.requireAuth, userRoute);
 app.use('/auth', authRoute);
+app.use('/product', productRoute);
 
 app.listen(port, function() {
 	console.log('Example app listening on port ' + port);

@@ -1,0 +1,28 @@
+extends ../../templates/common.pug
+block content
+    h1 Products
+        .row
+            each product in products
+                .col-6.col-md-3
+                    .card
+                        img.card-img-top(src=product.image, alt='...')
+                        .card-body
+                            h5.card-title= product.name
+                            p.card-text= product.des
+                            a.btn.btn-primary(href='#') Add to cart
+    nav(aria-label='Page navigation example')
+        ul.pagination
+            li.page-item
+            if  page>1
+                a.page-link(href="?page=" + (parseInt(page) - 1)) Previous
+            li.page-item
+            a.page-link(href='?page=1') 1
+            li.page-item
+            a.page-link(href='?page=2') 2
+            li.page-item
+            a.page-link(href='?page=3') 3
+            li.page-item
+                if  page < countPage 
+                    a.page-link(href='?page=' + (parseInt(page) + 1)) Next
+
+
