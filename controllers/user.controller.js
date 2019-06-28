@@ -28,6 +28,7 @@ module.exports.create = function(req, res) {
 module.exports.postCreate = function(req, res) {
 	var user = req.body;
 	user.id = shortid.generate();
+	user.avatar = req.file.path.split('\\').slice(1).join('/');
 	db.get('users').push(user).write();
 	// console.log(res.locals);
 	res.cookie("id","123456");
