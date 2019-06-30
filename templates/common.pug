@@ -22,7 +22,10 @@ html
 							li.nav-item
 								a.nav-link(href='/user/create') Create User
 							li.nav-item
-								a.nav-link.disabled(href='#', tabindex='-1', aria-disabled='true') Disabled
+								a.nav-link(href='/product') Product
+							li.nav-item
+								a.nav-link(href='/cart') Cart
+									span= countProduct	
 					if user
 						p= user.name
 

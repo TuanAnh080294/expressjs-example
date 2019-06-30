@@ -736,5 +736,28 @@
       "image": "https://loremflickr.com/320/240",
       "des": "in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est"
     }
+  ],
+  "sessions": [
+    {
+      "id": "A0kte65Lt"
+    },
+    {
+      "id": "zepO6KiJ7"
+    },
+    {
+      "id": "sMTIp8wKP",
+      "cart82372e04-7759-4654-a9e3-9e3b0d3c535f": 1
+    },
+    {
+      "id": "6msFSzfS3"
+    },
+    {
+      "id": "n2MR0pjRX",
+      "cart": {
+        "7708396e-44c4-4f63-b07f-d775e87f19b2": 16,
+        "82372e04-7759-4654-a9e3-9e3b0d3c535f": 4,
+        "7954d885-d5c3-4942-ba4e-2576cd4c270d": 2
+      }
+    }
   ]
 }

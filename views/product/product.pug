@@ -4,12 +4,12 @@ block content
         .row
             each product in products
                 .col-6.col-md-3
-                    .card
+                    .card.mb-3
                         img.card-img-top(src=product.image, alt='...')
                         .card-body
                             h5.card-title= product.name
                             p.card-text= product.des
-                            a.btn.btn-primary(href='#') Add to cart
+                            a.btn.btn-primary(href='cart/add/' + product.id) Add to cart
     nav(aria-label='Page navigation example')
         ul.pagination
             li.page-item

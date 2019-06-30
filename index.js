@@ -7,8 +7,11 @@ const app = express();
 const port = 3000;
 var userRoute = require('./routes/user.route');
 var authRoute = require("./routes/auth.route");
-var authMiddlewares = require("./middlewares/auth.middlewares");
 var productRoute = require("./routes/product.route");
+var cartRoute = require("./routes/cart.route");
+
+var authMiddlewares = require("./middlewares/auth.middlewares");
+var sessionMiddlewares = require("./middlewares/session.middlewares");
 
 var cookieParser = require('cookie-parser');
 
@@ -17,6 +20,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 
 app.use(express.static('public'));
 app.use(cookieParser('asdsadfsdgd123423423'));
+app.use(sessionMiddlewares);
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -28,6 +32,7 @@ app.get('/', function(req, res) {
 app.use('/user',authMiddlewares.requireAuth, userRoute);
 app.use('/auth', authRoute);
 app.use('/product', productRoute);
+app.use("/cart", cartRoute);
 
 app.listen(port, function() {
 	console.log('Example app listening on port ' + port);
