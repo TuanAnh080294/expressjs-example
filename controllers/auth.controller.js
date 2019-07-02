@@ -1,13 +1,20 @@
-var db = require("../db.js");
+// var db = require("../db.js");
+var User = require("../models/user.model");
 var md5 = require("md5");
+
+// async function getUser() {
+// 	var user = await User.find();
+// 	return user;
+// }
 
 module.exports.login = function (req, res) {
     res.render('../views/auth/login');
 };
 
-module.exports.postLogin = function (req, res) {
+module.exports.postLogin = async function (req, res) {
     var error = [];
-    var user = db.get("users").find({ email: req.body.email }).value();
+    var user = await User.find({ email: req.body.email });
+    
     if (!user) {
         res.render("../views/auth/login", {
             error: "User doesn't exists"
@@ -15,7 +22,7 @@ module.exports.postLogin = function (req, res) {
         return;
     }
 
-    if(user.password !== md5(req.body.password)) {
+    if(user[0].password !== md5(req.body.password)) {
         res.render('../views/auth/login', {
             error: "Password wrong"
         });

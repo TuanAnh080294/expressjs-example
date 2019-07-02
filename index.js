@@ -1,10 +1,14 @@
 //set up express.js
 require('dotenv').config();
-console.log(process.env.SESSION_SECRET);
+// console.log(process.env.SESSION_SECRET);
 
 const express = require('express');
 const app = express();
 const port = 3000;
+var mongosee = require('mongoose');
+
+mongosee.connect(process.env.MONGO_URL);
+
 var userRoute = require('./routes/user.route');
 var authRoute = require("./routes/auth.route");
 var productRoute = require("./routes/product.route");

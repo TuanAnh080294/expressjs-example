@@ -1,9 +1,15 @@
-// var express = require('express');
+var express = require('express');
 var db = require('../db');
 var users = db.get('users').value();
 const shortid = require('shortid');
 
+// async function getUser() {
+// 	var user = await User.find();
+// 	return user;
+// }
+
 module.exports.index = function(req, res) {
+	// var users = getUser();
 	res.render('../views/user/user', {
 		users: users
 	});

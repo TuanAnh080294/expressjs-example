@@ -30,5 +30,6 @@ module.exports.addToCart = function(req, res) {
 	var countProduct = Object.keys(db.get("sessions")
 	.find({ id: sessionId }).value().cart).length;
 
+	res.locals.countProduct = countProduct;
 	res.redirect("/product");
 }

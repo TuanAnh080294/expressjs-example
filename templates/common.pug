@@ -25,7 +25,8 @@ html
 								a.nav-link(href='/product') Product
 							li.nav-item
 								a.nav-link(href='/cart') Cart
-									span= countProduct	
+									if countProduct
+										p= countProduct	
 					if user
 						p= user.name
 
