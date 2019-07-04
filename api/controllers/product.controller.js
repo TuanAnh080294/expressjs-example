@@ -15,10 +15,6 @@ module.exports.getIndex = async function(req, res) {
     //     page: page, 
     //     countPage
     // });
-
-    res.render("../views/product/product", {
-        products: products,
-        page: page,
-        countPage: countPage
-    });
+    res.json({ products: products });
+    
 }
