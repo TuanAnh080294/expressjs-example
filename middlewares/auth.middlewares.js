@@ -3,7 +3,7 @@ var User = require("../models/user.model");
 
 module.exports.requireAuth =function(req, res, next) {
     
-    var user = User.find({ _id: req.signedCookies.userId });
+    var user = User.find({ id: req.signedCookies.userId });
     if(!req.signedCookies.userId) {
         res.redirect("/auth/login");
         return;

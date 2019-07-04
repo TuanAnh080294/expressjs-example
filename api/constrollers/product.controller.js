@@ -1,6 +1,6 @@
 // var db = require("../db");
 // var products = db.get("products").value();
-var Product = require("../models/product.model");
+var Product = require("../../models/product.model");
 
 module.exports.getIndex = async function(req, res) {
     var products = await Product.find();
@@ -16,5 +16,9 @@ module.exports.getIndex = async function(req, res) {
     //     countPage
     // });
 
-    res.json({ products: products });
+    res.render("../views/product/product", {
+        products: products,
+        page: page,
+        countPage: countPage
+    });
 }

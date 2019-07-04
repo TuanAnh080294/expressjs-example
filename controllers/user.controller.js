@@ -1,25 +1,19 @@
-var express = require('express');
-var db = require('../db');
-var users = db.get('users').value();
-const shortid = require('shortid');
+// var express = require('express');
+// var db = require('../db');
+// var users = db.get('users').value();
+// const shortid = require('shortid');
+var User = require("../models/user.model");
 
-// async function getUser() {
-// 	var user = await User.find();
-// 	return user;
-// }
-
-module.exports.index = function(req, res) {
-	// var users = getUser();
+module.exports.index = async function(req, res) {
+	var users = await User.find();
 	res.render('../views/user/user', {
 		users: users
 	});
 };
 
-module.exports.search = function(req, res) {
+module.exports.search = async function(req, res) {
 	var q = req.query.q;
-	var queryMatches = users.filter(function(user) {
-		return user.name.toLowerCase().indexOf(q.toLowerCase()) != -1;
-	});
+	var queryMatches = await User.find({ name: q });
 	res.render('../views/user/user', {
 		users: queryMatches,
 		query: q

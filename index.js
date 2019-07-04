@@ -13,6 +13,7 @@ var userRoute = require('./routes/user.route');
 var authRoute = require("./routes/auth.route");
 var productRoute = require("./routes/product.route");
 var cartRoute = require("./routes/cart.route");
+var apiRoute = require("./api/routes/product.route");
 
 var authMiddlewares = require("./middlewares/auth.middlewares");
 var sessionMiddlewares = require("./middlewares/session.middlewares");
@@ -37,6 +38,7 @@ app.use('/user',authMiddlewares.requireAuth, userRoute);
 app.use('/auth', authRoute);
 app.use('/product', productRoute);
 app.use("/cart", cartRoute);
+app.use("/api/product", apiRoute);
 
 app.listen(port, function() {
 	console.log('Example app listening on port ' + port);
