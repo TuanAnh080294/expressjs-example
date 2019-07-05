@@ -18,3 +18,32 @@ module.exports.getIndex = async function(req, res) {
     res.json({ products: products });
     
 }
+
+module.exports.create = async function(req, res) {
+    var product = await Product.create(req.body);
+    res.json(product);
+}
+
+module.exports.update = async function(req, res) {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    var id = new ObjectId(req.params.id);
+    var query = {_id: id};
+    var product = await Product.findOneAndUpdate(query,{ name: req.body.name, image: req.body.image, des: req.body.des });
+    res.json(JSON.stringify(product));
+}
+
+module.exports.replace = async function(req, res) {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    var id = new ObjectId(req.params.id);
+    var query = {_id: id};
+    var product = await Product.findOneAndReplace(query,{ name: req.body.name, image: req.body.image, des: req.body.des });
+    res.json(JSON.stringify(product));
+}
+
+module.exports.delete = async function(req, res) {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    var id = new ObjectId(req.params.id);
+    var query = {_id: id};
+    var product = await Product.findByIdAndDelete(id);
+    res.json(JSON.stringify(product));
+}
